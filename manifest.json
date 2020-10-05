@@ -4,7 +4,6 @@
   "description": "Remove Sen",
   "permissions": [
     "activeTab", "declarativeContent", "storage", "tabs", 
-    "webview",
     "https://scirate.com/",
     "https://arxiv.org/",
     "https://scholar.google.com/"],
