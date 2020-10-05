@@ -1,7 +1,7 @@
 {
   "name": "SciRate Assistant",
   "version": "1.0",
-  "description": "Remove Sen",
+  "description": "SciRate Assistant is a Chrome extension to offer SciRate users a personalized experience...",
   "permissions": [
     "activeTab", "declarativeContent", "storage", "tabs", 
     "https://scirate.com/",
