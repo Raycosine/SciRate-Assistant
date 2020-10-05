@@ -14,12 +14,31 @@
 
 
 if(document.URL.includes('scirate')){
-//console.log('scirate');
-links=document.head.getElementsByTagName('link');
-if(links!=undefined){
-    //console.log(links[0].href);
-    links[0].disabled=1;
-};
+    //console.log('scirate');
+    links=document.head.getElementsByTagName('link');
+    if(links!=undefined){
+        chrome.storage.sync.get(
+            'isLoveSen', function(data) {
+              if(data!==undefined){
+                  if(data.isLoveSen==false){
+                    links[0].disabled=1;
+                  }
+                  else{
+                      links[0].disabled=0;
+                  }
+              }
+              else{
+                  links[0].disabled=1;
+              }
+              chrome.storage.sync.set({
+                currentSen: links[0].disabled
+              }, function() {
+                  //console.log('set to');
+                  //console.log(links[0].disabled);
+              });
+          });
+        //console.log(links[0].href);
+    };
 };
 if(document.URL.includes('https://arxiv.org/abs/')){
     //console.log('arxiv');
