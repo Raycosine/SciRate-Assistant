@@ -17,3 +17,6 @@ While visiting SciRate, *Sen* is initially disabled. Clicking the extension icon
 ### Scirate on arXiv
 
 Provide a SciRate link directly on an accessed arxiv page showing specific paper/new submissions/recent submissions/searching results. The popup becomes useless while visiting arXiv.
+
+## To-do list
+TBD
