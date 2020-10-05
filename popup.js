@@ -5,6 +5,7 @@
 'use strict';
 
 let removeFont = document.getElementById('RemoveFont');
+
 removeFont.onclick = function(element) {
   chrome.tabs.query({active:true, currentWindow: true}, function(tabs){
     chrome.tabs.executeScript(
@@ -16,4 +17,12 @@ removeFont.onclick = function(element) {
   if(links!=undefined)
     {links[0].disabled=1-links[0].disabled;};
 };
-
+chrome.storage.sync.get('url', function(data) {
+  if (data.url.includes('scirate')){
+    //console.log('scirate');
+    removeFont.style.display='inline-block';
+  }
+  else{
+    removeFont.style.display='none';
+  };
+});
