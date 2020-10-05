@@ -1,7 +1,7 @@
 # SciRate-Assistant
 SciRate Assistant is a Chrome extension to offer SciRate users a personalized experience...
 
-## [x] Enable/Disable Sen
+## Enable/Disable Sen
 **font-family** ("Sen", "Helvetica Neue", Helvetica, Arial, sans-serif)
 
 Instructions:
