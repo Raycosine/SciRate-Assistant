@@ -16,7 +16,12 @@ removeFont.onclick = function(element) {
   });
   let links=document.head.getElementsByTagName('link');
   if(links!=undefined)
-    {links[0].disabled=1-links[0].disabled;};
+    {links[0].disabled=1-links[0].disabled;
+      chrome.storage.sync.set({
+        isLoveSen: links[0].disabled
+      }, function() {
+      });
+    }; 
 };
 chrome.storage.sync.get('url', function(data) {
   if (data.url.includes('scirate')){
