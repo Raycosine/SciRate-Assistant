@@ -4,7 +4,6 @@ SciRate Assistant is a Chrome extension to offer SciRate users a personalized ex
 ## Before use
 0. Download zip and unzipped it, or clone this project.
 1. Install this extension using 'Load unpacked' from the project folder.
-2. (Modify site access)
 
 ## Features
 ### To have Sen or not to have
