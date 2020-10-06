@@ -49,7 +49,7 @@ if(document.URL.includes('https://arxiv.org/abs/')){
         var ul=document.createElement("ul");
         ul.appendChild(li);
         var dl=document.createElement("h2");
-        dl.textContent='External links';
+        dl.textContent='External links:';
         es=document.getElementsByClassName('extra-services');
         ft=es[0].firstElementChild;
         ft.insertBefore(dl, ft.children[4]);
