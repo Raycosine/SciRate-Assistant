@@ -20,22 +20,25 @@ You can set and save your preference by clicking the <kbd>Sci</kbd> button or do
 
 #### on arXiv
 Provide a SciRate link directly on any accessed arxiv page about one specific paper/new submissions/recent submissions/searching results. The popup becomes useless while visiting arXiv.
-<p style=">
-<img src="/images/arxiv-search.jpg" width="30%" style="margin:10px 0px;">
-</p>
-<p>
-<img src="/images/arxiv-recent.jpg" width="30%" style="margin:10px 0px;">
-</p>
-<p>
-<img src="/images/arxiv-single-paper.jpg" width="30%" style="margin:10px 0px;">
-</p>
 #### Google Scholar
 Provide a SciRate link for arXiv papers directly on searching results/author pages. 
-<p>
-<img src="/images/scholar-search.jpg" width="50%" style="margin:10px 0px;">
+
+#### Preview
+
+<p style=">
+<img src="/images/arxiv-search.jpg" width="300px" style="margin:10px 0px; border:2px;">
 </p>
 <p>
-<img src="/images/scholar-profile.jpg" width="50%" style="margin:10px 0px;">
+<img src="/images/arxiv-recent.jpg" width="300px" style="margin:10px 0px; border:2px;">
+</p>
+<p>
+<img src="/images/arxiv-single-paper.jpg" width="300px" style="margin:10px 0px; border:2px;">
+</p>
+<p>
+<img src="/images/scholar-search.jpg" width="300px" style="margin:10px 0px; border:2px;">
+</p>
+<p>
+<img src="/images/scholar-profile.jpg" width="300px" style="margin:10px 0px; border:2px;">
 </p>
 
 ## To-do list
