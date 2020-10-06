@@ -1,7 +1,3 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 'use strict';
 
 let removeFont = document.getElementById('RemoveFont');
@@ -25,7 +21,6 @@ removeFont.onclick = function(element) {
 };
 chrome.storage.sync.get('url', function(data) {
   if (data.url.includes('scirate')){
-    //console.log('scirate');
     removeFont.style.display='inline-block';
     chrome.storage.sync.get(
       'currentSen', function(data) {

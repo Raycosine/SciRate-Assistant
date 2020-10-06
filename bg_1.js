@@ -1,20 +1,5 @@
-/*
-(function() {
-    // Load the script
-    var script = document.createElement("SCRIPT");
-    script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    script.type = 'text/javascript';
-    script.onload = function() {
-        var $ = window.jQuery;
-        // Use $ here...
-    };
-    document.getElementsByTagName("head")[0].appendChild(script);
-})();
-*/
-
-
 if(document.URL.includes('scirate')){
-    //console.log('scirate');
+
     links=document.head.getElementsByTagName('link');
     if(links!=undefined){
         chrome.storage.sync.get(
@@ -33,15 +18,14 @@ if(document.URL.includes('scirate')){
               chrome.storage.sync.set({
                 currentSen: links[0].disabled
               }, function() {
-                  //console.log('set to');
-                  //console.log(links[0].disabled);
+
               });
           });
-        //console.log(links[0].href);
+
     };
 };
 if(document.URL.includes('https://arxiv.org/abs/')){
-    //console.log('arxiv');
+
     if(document.getElementById('scirate')==undefined){
         var srLink=document.createElement("a");
         srLink.href='https://scirate.com/arxiv/'+document.URL.substring(22,document.URL.length);

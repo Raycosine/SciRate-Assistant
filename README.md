@@ -12,13 +12,13 @@ Scirate's current (20201005) font-family is : ("Sen", "Helvetica Neue", Helvetic
 
 Some people don't really like this new font, while some other love it.
 
-*Sen* is initially disabled while using this extension. You can save your preference for *Sen* in **Options**. **Options** can be found either by right-clicking the extension icon or Extension - SciRate Assistant 1.0 - Details - Extension Options).
+I am not a fan of *Sen*, hence it is initially disabled after the installation of SciRate Assistant. You can set and save your preference by clicking the <kbd>Sci</kbd> button or do it in **Options**. **Options** can be found either by right-clicking the extension icon or in Extension - SciRate Assistant 1.0 - Details - Extension Options).
 
-Clicking the extension icon would pop up a window, where lies the button <kbd>Sci</kbd> for enabling/disabling *Sen*.
+<kbd>Sci</kbd> is pop-uped when clicking the extension icon.
 
 ### Scirate on arXiv
 
-Provide a SciRate link directly on an accessed arxiv page showing specific paper/new submissions/recent submissions/searching results. The popup becomes useless while visiting arXiv.
+Provide a SciRate link directly on any accessed arxiv page about one specific paper/new submissions/recent submissions/searching results. The popup becomes useless while visiting arXiv.
 
 ## To-do list
 Unknown at this point

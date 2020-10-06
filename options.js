@@ -16,7 +16,7 @@ function save_options() {
   // Restores select box and checkbox state using the preferences
   // stored in chrome.storage.
   function restore_options() {
-    // Use default value color = 'red' and likesColor = true.
+    
     chrome.storage.sync.get(
       'isLoveSen', function(data) {
         if(data!==undefined){

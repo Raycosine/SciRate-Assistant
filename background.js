@@ -1,7 +1,3 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 'use strict';
 
 chrome.runtime.onInstalled.addListener(function() {
@@ -23,10 +19,9 @@ chrome.runtime.onInstalled.addListener(function() {
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
-  //console.log(tabId); 
+
   chrome.storage.sync.set({url:tab.url}, function(){
-    //console.log('set url');
-    //console.log(tab.url);
+
   });
   chrome.tabs.executeScript(
     tabId,//tabs[0].id,
@@ -34,9 +29,32 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
       _=>{
       let e=chrome.runtime.lastError;
       if(e!==undefined){
-        //console.log(tabId, _, e);
+
       }
     }
   );
   //chrome.tabs.query({active:true, currentWindow: true}, function(tabs){  });
 });
+
+chrome.tabs.onActivated.addListener(function(info){
+
+  chrome.tabs.query({active:true, currentWindow: true}, function(tabs){
+    var tabId=tabs[0].tabId, tabUrl=tabs[0].url;
+    if(tabUrl!==undefined){
+      chrome.storage.sync.set({url:tabUrl}, function(){
+
+      });
+    }
+    chrome.tabs.executeScript(
+      tabId,//tabs[0].id,
+      {file: 'bg_1.js'},
+        _=>{
+        let e=chrome.runtime.lastError;
+        if(e!==undefined){
+
+        }
+      }
+    );
+  });
+  
+})
