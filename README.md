@@ -16,7 +16,7 @@ You can set and save your preference by clicking the <kbd>Sci</kbd> button or do
 
 <kbd>Sci</kbd> is pop-uped when clicking the extension icon.
 
-### Scirate on arXiv
+### SciRate on arXiv
 
 Provide a SciRate link directly on any accessed arxiv page about one specific paper/new submissions/recent submissions/searching results. The popup becomes useless while visiting arXiv.
 
