@@ -16,9 +16,16 @@ You can set and save your preference by clicking the <kbd>Sci</kbd> button or do
 
 <kbd>Sci</kbd> is pop-uped when clicking the extension icon.
 
-### Scirate on arXiv
+### Scirate everywhere
 
+#### on arXiv
 Provide a SciRate link directly on any accessed arxiv page about one specific paper/new submissions/recent submissions/searching results. The popup becomes useless while visiting arXiv.
-
+![arxiv search](/images/arxiv-search.jpg)
+![arxiv recent](/images/arxiv-recent.jpg)
+![arxiv single](/images/arxiv-single-paper.jpg)
+#### Google Scholar
+Provide a SciRate link for arXiv papers directly on searching results/author pages. 
+![gs-search](/images/scholar-search.jpg)
+![gs-profile](/images/scholar-profile/jpg)
 ## To-do list
 Unknown at this point
