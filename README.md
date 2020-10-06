@@ -31,7 +31,12 @@ Provide a SciRate link directly on any accessed arxiv page about one specific pa
 </p>
 #### Google Scholar
 Provide a SciRate link for arXiv papers directly on searching results/author pages. 
+<p>
 <img src="/images/scholar-search.jpg" width="50%" style="margin:10px 0px;">
+</p>
+<p>
 <img src="/images/scholar-profile.jpg" width="50%" style="margin:10px 0px;">
+</p>
+
 ## To-do list
 Unknown at this point
