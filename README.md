@@ -26,19 +26,19 @@ Provide a SciRate link for arXiv papers directly on searching results/author pag
 #### Preview
 
 <p style=">
-<img src="/images/arxiv-search.jpg" width="30%" style="margin:10px 0px;">
+<img src="/images/arxiv-search.jpg" width="30%" style="margin:10px 0px; border:2px;">
 </p>
 <p>
-<img src="/images/arxiv-recent.jpg" width="30%" style="margin:10px 0px;">
+<img src="/images/arxiv-recent.jpg" width="30%" style="margin:10px 0px; border:2px;">
 </p>
 <p>
-<img src="/images/arxiv-single-paper.jpg" width="30%" style="margin:10px 0px;">
+<img src="/images/arxiv-single-paper.jpg" width="30%" style="margin:10px 0px; border:2px;">
 </p>
 <p>
-<img src="/images/scholar-search.jpg" width="50%" style="margin:10px 0px;">
+<img src="/images/scholar-search.jpg" width="50%" style="margin:10px 0px; border:2px;">
 </p>
 <p>
-<img src="/images/scholar-profile.jpg" width="50%" style="margin:10px 0px;">
+<img src="/images/scholar-profile.jpg" width="50%" style="margin:10px 0px; border:2px;">
 </p>
 
 ## To-do list
