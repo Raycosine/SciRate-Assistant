@@ -16,6 +16,10 @@ chrome.runtime.onInstalled.addListener(function() {
       actions: [new chrome.declarativeContent.ShowPageAction()]
     }]);
   });
+  chrome.storage.sync.set({
+    isLoveSen: 0,
+    currentSen: 1
+  });
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
