@@ -20,12 +20,12 @@ You can set and save your preference by clicking the <kbd>Sci</kbd> button or do
 
 #### on arXiv
 Provide a SciRate link directly on any accessed arxiv page about one specific paper/new submissions/recent submissions/searching results. The popup becomes useless while visiting arXiv.
-![arxiv search](/images/arxiv-search.jpg){:width="50%"}
-![arxiv recent](/images/arxiv-recent.jpg){:width="50%"}
-![arxiv single](/images/arxiv-single-paper.jpg){:width="50%"}
+<img src="/images/arxiv-search.jpg" width="50%">
+<img src="/images/arxiv-recent.jpg" width="50%">
+<img src="/images/arxiv-single-paper.jpg" width="50%">
 #### Google Scholar
 Provide a SciRate link for arXiv papers directly on searching results/author pages. 
-![gs-search](/images/scholar-search.jpg){:width="50%"}
-![gs-profile](/images/scholar-profile.jpg){:width="50%"}
+<img src="/images/scholar-search.jpg" width="50%">
+<img src="/images/scholar-profile.jpg" width="50%">
 ## To-do list
 Unknown at this point
