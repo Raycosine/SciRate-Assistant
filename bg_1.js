@@ -1,5 +1,4 @@
 if(document.URL.includes('scirate')){
-
     links=document.head.getElementsByTagName('link');
     if(links!=undefined){
         chrome.storage.sync.get(
@@ -42,16 +41,86 @@ if(document.URL.includes('https://arxiv.org/abs/')){
         ft=es[0].firstElementChild;
         ft.insertBefore(dl, ft.children[4]);
         ft.insertBefore(ul, ft.children[5]);
-    }
+        chrome.storage.sync.get(
+            'nscites', function(data){
+                chrome.storage.sync.remove('nscites', function(){});
+            }
+        );
+        var shref='https://scirate.com/arxiv/'+document.URL.substring(22,document.URL.length)+"/scites";
+        chrome.runtime.sendMessage({sciteshref: shref}, function(response) {
+            chrome.runtime.onMessage.addListener(
+                function(request, sender, sendResponse) {
+                  console.log(sender.tab ?
+                              "from a content script:" + sender.tab.url :
+                              "from the extension");
+                  if (request.sciteshref == shref){
+                    sendResponse({farewell: "goodbye"});
+                    srLink.text='Scites: '+request.nscites;
+                  }
+                });
+            /*
+            chrome.storage.sync.get(
+                'nscites', function(data) {
+                    //console.log('nscites get by bg_1');
+                    //console.log(data);
+                    srLink.text='Scites: '+data.nscites;
+                    chrome.storage.sync.remove('nscites', function(){
+                        console.log(data.scites);
+                        console.log('nscites removed');
+                    });
+                    
+            });*/
+          });        
+    };
+
 };
+
+function setScitesSpan(span, a){
+    if(a.text.includes('Scites')==false){
+        span.onmouseover = function(element){
+            var a =span.firstElementChild;
+            if(a.text.includes('Scites')==false){
+                var shref=a.href+"/scites";               
+                chrome.storage.sync.get(
+                    'nscites', function(data){
+                        chrome.storage.sync.remove('nscites', function(){});
+                    }
+                );
+                chrome.runtime.sendMessage({sciteshref: shref}, function(response) {
+                    console.log(response.farewell);
+                    chrome.runtime.onMessage.addListener(
+                        function(request, sender, sendResponse) {
+                        console.log(sender.tab ?
+                                    "from a content script:" + sender.tab.url :
+                                    "from the extension");
+                        if (request.sciteshref == shref){
+                            sendResponse({farewell: "goodbye"});
+                            a.text='Scites: '+request.nscites;
+                        }
+                        });
+                });
+            }
+        };
+    }
+}
+
 if(document.URL.includes('arxiv.org/search')){
     if(document.getElementById('scirate')==undefined){
         lists=document.getElementsByClassName('list-title');
         for (l of lists){
-            var srhref='https://scirate.com/arxiv/'+l.firstChild.href.substring(22,document.URL.length);
-            var span=document.createElement('span');
-            span.innerHTML="&nbsp;[<a href='"+srhref+"'>SciRate</a>]&nbsp;";
-            l.appendChild(span);
+            if(l.innerHTML.includes('scirate')==false){
+                var srhref='https://scirate.com/arxiv/'+l.firstChild.href.substring(22,document.URL.length);
+                var a=document.createElement('a');
+                a.href=srhref;
+                a.text='SciRate';
+                var span=document.createElement('span');
+                span.innerHTML="&nbsp;[";
+                span.appendChild(a);
+                span.innerHTML+="]&nbsp;";
+                span.className='scirate';
+                l.appendChild(span);
+                setScitesSpan(span, a);
+            }
         }
         var sr=document.createElement("SCRIPT");
         sr.id='scirate';
@@ -63,10 +132,19 @@ if(document.URL.includes('arxiv.org/list')){
     if(document.getElementById('scirate')==undefined){
         lists=document.getElementsByClassName('list-identifier');
         for (l of lists){
-            var srhref='https://scirate.com/arxiv/'+l.firstChild.href.substring(22,document.URL.length);
-            var span=document.createElement('span');
-            span.innerHTML="&nbsp;[<a href='"+srhref+"'>SciRate</a>]&nbsp;";
-            l.appendChild(span);
+            if(l.innerHTML.includes('scirate')==false){
+                var srhref='https://scirate.com/arxiv/'+l.firstChild.href.substring(22,document.URL.length);
+                var a=document.createElement('a');
+                a.href=srhref;
+                a.text='SciRate';
+                var span=document.createElement('span');
+                span.innerHTML="&nbsp;[";
+                span.appendChild(a);
+                span.innerHTML+="]&nbsp;";
+                span.className='scirate';
+                l.appendChild(span);
+                setScitesSpan(span, a);
+            }
         }
         var sr=document.createElement("SCRIPT");
         sr.id='scirate';
@@ -74,6 +152,33 @@ if(document.URL.includes('arxiv.org/list')){
     }
 };
 
+function setScitesA(a){
+    a.onmouseover = function(element){
+        if(a.text.includes('Scites')==false){
+            var shref=this.href+"/scites";
+            chrome.storage.sync.get(
+                'nscites', function(data){
+                    chrome.storage.sync.remove('nscites', function(){});
+                }
+            );
+            var scitebutton=this;
+            chrome.runtime.sendMessage({sciteshref: shref}, function(response) {
+                console.log(response.farewell);
+                chrome.runtime.onMessage.addListener(
+                    function(request, sender, sendResponse) {
+                    console.log(sender.tab ?
+                                "from a content script:" + sender.tab.url :
+                                "from the extension");
+                    if (request.sciteshref == shref){
+                        sendResponse({farewell: "goodbye"});
+                        scitebutton.text='[Scites: '+request.nscites+']';
+                       
+                    }
+                    });
+            });
+        }
+    };
+}
 if(document.URL.includes('scholar.google.com/scholar')){
     if(document.getElementById('scirate')==undefined){
         lists=document.getElementsByClassName('gs_r gs_or gs_scl');
@@ -87,6 +192,7 @@ if(document.URL.includes('scholar.google.com/scholar')){
                     a.text='[SciRate]';
                     a.class='gs_ctg2';
                     l.firstElementChild.appendChild(a);
+                    setScitesA(a);
                 }
             }
         }
@@ -106,7 +212,7 @@ function addScirateLinkOnScholarProfile(){
             var info=l.firstElementChild.lastElementChild;
             if(info!==undefined){
                 var s=info.innerText;
-                if(s.includes('arXiv')){
+                if(s.includes('arXiv') || s.includes('arxiv') || s.includes('Arxiv')){
                     if(s.includes(':')){//new arXiv ID
                         var srhref='https://scirate.com/arxiv/'+s.split(':')[1];
                     }
@@ -121,6 +227,7 @@ function addScirateLinkOnScholarProfile(){
                     fullinfo.appendChild(space);
                     l.firstElementChild.insertBefore(a, l.firstElementChild.children[1]);
                     fullinfo.className+=' scirate';
+                    setScitesA(a);
                 }
             }
         }

@@ -3,14 +3,14 @@
   <head>
     <link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">
     <style>
-      button {
+      button.Switch {
         color: white;
         background-color:#101010;
-        font-size: 2.4em;
+        font-size: 1.2em;
         font-family: "Sen", "Helvetica Neue", Helvetica, Arial, sans-serif;
         border: none;
-        height: 40px;
-        width: 60px;
+        height: 45px;
+        width: 160px;
         outline: none;
         text-align: center;
         text-decoration: none;
@@ -21,14 +21,68 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        margin:0;
+        padding:0;
+      }
+      button.Search {
+        color: white;
+        background-color:#101010;
+        font-size: 1.2em;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        border: none;
+        height: 45px;
+        width: 40px;
+        outline: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin:0;
+        padding:0;
+      }
+      input.Id{
+        height:45px;
+        width:115px;
+        border:0;
+        margin:0;
+        padding:0;
+      }
+      div.Input{
+        flex-direction: row wrap;
+        justify-content: space-between;
+        width:160px;
+        background-color: #101010;
+      }
+      div.ScitesResult{
+        height:45px;
+        width:160px;
+        background-color: #101010;
+        font-size:1.2em;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
       }
       body {
         margin:0;
+        width:160px;
+        flex-direction: column wrap;
       }
     </style>
   </head>
   <body>
-    <button id="RemoveFont">Sci</button>
+    <button class="Switch" id="RemoveFont">Enable Sen</button>
+    <div class="Input">
+    <input class="Id" id="ArXivId" placeholder="Enter arXiv Id"></input>
+    <button class="Search" id="ShowScirate">Go</button>
+    </div>
+    <div class="ScitesResult" id="ScitesResult">Scites </div>
     <script src="popup.js"></script>
   </body>
 </html>

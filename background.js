@@ -37,8 +37,72 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
       }
     }
   );
-  //chrome.tabs.query({active:true, currentWindow: true}, function(tabs){  });
 });
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+    if (request.sciteshref!==undefined){
+      sendResponse({farewell: "goodbye"});
+        //console.log('get scirate href');
+        var httpReq = new XMLHttpRequest();
+        httpReq.open('GET', request.sciteshref, true);
+        httpReq.setRequestHeader('Content-Type','text/html; charset=utf-8');
+        httpReq.setRequestHeader('Access-Control-Allow-Headers', '*');
+        httpReq.setRequestHeader('Access-Control-Allow-Origin', '*');
+        var fields={};
+        httpReq.onreadystatechange = function () {
+        console.log('test');
+        if (httpReq.readyState === 4){// && httpReq.status === '200') {
+            console.log('read scites ready!');
+            //console.log(httpReq);
+            var rsp=httpReq.responseText;
+            if(rsp.match('Scites</h2>')!=null){
+                console.log('scites number exists');
+                var numberofscites=rsp.substring(rsp.match('Scites</h2>').index-10, rsp.match('Scites</h2>').index-1);
+                console.log(numberofscites);
+                numberofscites=numberofscites.substring(numberofscites.match('<h2>').index+4,);
+                console.log('nscites ready');
+                console.log(numberofscites);
+                chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                  chrome.tabs.sendMessage(tabs[0].id, {nscites:numberofscites, sciteshref:request.sciteshref}, function(response) {
+                    console.log(response.farewell);
+                  });
+                });            
+                //chrome.storage.sync.set({nscites:numberofscites}, function(){
+                  //chrome.storage.sync.remove('sciteshref', function(data){});
+                  //console.log('sciteshref removed');
+                //} );
+            }
+            else{
+              if(rsp.match('Scite</h2>')!=null){
+                console.log('scites number exists');
+                var numberofscites=rsp.substring(rsp.match('Scite</h2>').index-10, rsp.match('Scite</h2>').index-1);
+                console.log(numberofscites);
+                numberofscites=numberofscites.substring(numberofscites.match('<h2>').index+4,);
+                console.log('nscites ready');
+                console.log(numberofscites);
+                chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                  chrome.tabs.sendMessage(tabs[0].id, {nscites:numberofscites, sciteshref:request.sciteshref}, function(response) {
+                    console.log(response.farewell);
+                  });
+                });       
+              }
+              else {
+                console.log(rsp);
+              }
+            }
+        };
+        };
+        httpReq.send(fields);
+      };
+});
+  
+
+
+
 
 chrome.tabs.onActivated.addListener(function(info){
 
@@ -61,4 +125,5 @@ chrome.tabs.onActivated.addListener(function(info){
     );
   });
   
-})
+});
+
