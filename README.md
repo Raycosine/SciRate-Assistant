@@ -29,7 +29,7 @@ Provide a SciRate link & scites for arXiv papers directly on searching results/a
 
 The number of scites is shown when the mouse is over *[SciRate]*.  
 
-### Popup
+#### Popup
 Find the scites quickly by entering arXiv ID.
 
 ### Preview
