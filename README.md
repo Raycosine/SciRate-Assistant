@@ -17,7 +17,7 @@ You can set and save your preference by clicking the <kbd>Enable/Disable Sen</kb
 **Options** can be found either by right-clicking the extension icon or in Extension - SciRate Assistant 1.0 - Details - Extension Options).
 
 
-### Scirate everywhere
+### Scirate (almost) everywhere
 
 #### ArXiv
 Provide a SciRate link & scites directly on any accessed arxiv page about one specific paper/new submissions/recent submissions/searching results.
