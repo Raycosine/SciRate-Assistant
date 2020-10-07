@@ -12,14 +12,15 @@ Scirate's current (20201005) font-family is : ("Sen", "Helvetica Neue", Helvetic
 
 Some people don't really like this new font, while some other love it.
 
-You can set and save your preference by clicking the <kbd>Sci</kbd> button or do it in **Options**. **Options** can be found either by right-clicking the extension icon or in Extension - SciRate Assistant 1.0 - Details - Extension Options).
+You can set and save your preference by clicking the <kbd>Enable/Disable Sen</kbd> button in the popup or change **options**. 
 
-<kbd>Sci</kbd> is pop-uped when clicking the extension icon.
+**Options** can be found either by right-clicking the extension icon or in Extension - SciRate Assistant 1.0 - Details - Extension Options).
+
 
 ### Scirate everywhere
 
-#### on arXiv
-Provide a SciRate link & scites directly on any accessed arxiv page about one specific paper/new submissions/recent submissions/searching results. The popup becomes useless while visiting arXiv.
+#### ArXiv
+Provide a SciRate link & scites directly on any accessed arxiv page about one specific paper/new submissions/recent submissions/searching results.
 
 The number of scites is shown when the mouse is over *[SciRate]*.  
 
@@ -28,8 +29,13 @@ Provide a SciRate link & scites for arXiv papers directly on searching results/a
 
 The number of scites is shown when the mouse is over *[SciRate]*.  
 
-#### Preview
+### Popup
+Find the scites quickly by entering arXiv ID.
 
+### Preview
+<p style=">
+<img src="/images/popup.jpg" width="300px" style="margin:10px 0px; border:2px;">
+</p>
 <p style=">
 <img src="/images/arxiv-search.jpg" width="300px" style="margin:10px 0px; border:2px;">
 </p>
