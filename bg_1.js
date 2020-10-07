@@ -1,15 +1,3 @@
-(function() {
-    // Load the script
-    var script = document.createElement("SCRIPT");
-    script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    script.type = 'text/javascript';
-    script.onload = function() {
-        var $ = window.jQuery;
-        // Use $ here...
-    };
-    document.getElementsByTagName("head")[0].appendChild(script);
-})();
-
 if(document.URL.includes('scirate')){
 
     links=document.head.getElementsByTagName('link');
@@ -129,8 +117,9 @@ function addScirateLinkOnScholarProfile(){
                     var a=document.createElement('a');
                     a.href=srhref;
                     a.text='[SciRate]';
+                    a.className='gsc_a_at';
                     fullinfo.appendChild(space);
-                    fullinfo.appendChild(a);
+                    l.firstElementChild.insertBefore(a, l.firstElementChild.children[1]);
                     fullinfo.className+=' scirate';
                 }
             }
