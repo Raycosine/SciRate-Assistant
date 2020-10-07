@@ -33,10 +33,10 @@ The number of scites is shown when the mouse is over *[SciRate]*.
 Find the scites quickly by entering arXiv ID.
 
 ### Preview
-<p style=">
+<p>
 <img src="/images/popup.jpg" width="300px" style="margin:10px 0px; border:2px;">
 </p>
-<p style=">
+<p>
 <img src="/images/arxiv-search.jpg" width="300px" style="margin:10px 0px; border:2px;">
 </p>
 <p>
