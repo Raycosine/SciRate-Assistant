@@ -53,4 +53,7 @@ Find the scites quickly by entering arXiv ID.
 </p>
 
 ## To-do list
-Unknown at this point
+- improve the "searching arXiv ID" function
+- show/hide abstracts
+- adjust the loc of left/right sidebar
+- allow font/font-size personalization
