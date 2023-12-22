@@ -64,6 +64,54 @@ showScirate.onclick = function(element) {
   ); 
     */
 
+let markCurrentRead=document.getElementById('MarkCurrentRead');
+//console.log(markCurrentRead);
+markCurrentRead.onclick = function(element) {
+  console.log('read click');
+  chrome.storage.sync.get(['readList','url'], function(data) {
+      if(data.url.includes('scirate') && data.url.includes('arxiv')){
+        if(data.readList.includes(data.url)){
+          markCurrentRead.textContent = "Read Already";
+        }
+        else{
+          markCurrentRead.textContent = "Marked";
+          var rl=data.readList;
+          rl.push(data.url);
+          chrome.storage.sync.set({
+            readList: rl
+          }, function() {
+          });
+        };
+      };
+  });
+};
+
+
+let removeCurrentRead=document.getElementById('RemoveCurrentRead');
+//console.log(removeCurrentRead);
+removeCurrentRead.onclick = function(element) {
+  console.log('unread click');
+  chrome.storage.sync.get(['readList','url'], function(data) {
+      //console.log(data);
+      if(data.url.includes('scirate') && data.url.includes('arxiv')){
+        if(data.readList.includes(data.url)){
+          removeCurrentRead.textContent = "Removed";
+          var rl=data.readList;
+          rl=rl.filter(function(item){item!=data.url;});
+          console.log('gonna remove from readlist');
+          //console.log(rl);
+          chrome.storage.sync.set({
+            readList: rl
+          }, function() {
+          });
+        }
+        else{
+          removeCurrentRead.textContent = "Never read";
+        };
+      };
+  });
+};
+
 chrome.storage.sync.get('url', function(data) {
   if (data.url.includes('scirate')){
     removeFont.style.display='inline-block';

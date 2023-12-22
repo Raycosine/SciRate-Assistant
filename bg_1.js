@@ -1,5 +1,7 @@
 if(document.URL.includes('scirate')){
     links=document.head.getElementsByTagName('link');
+    paper_links=document.body.getElementsByClassName('title');
+    //console.log(paper_links);
     if(links!=undefined){
         chrome.storage.sync.get(
             'isLoveSen', function(data) {
@@ -21,6 +23,28 @@ if(document.URL.includes('scirate')){
               });
           });
 
+    };
+    if(paper_links!=undefined){
+        chrome.storage.sync.get(
+            'readList', function(data){
+                //console.log('check readlist');
+                //console.log(data.readList);
+                for(i=0;i<paper_links.length;i++){
+                    if(paper_links[i].firstChild.href!=undefined){
+                        var paper_title= paper_links[i].firstChild;
+                        //console.log(paper_title);
+                        if(data.readList.includes(paper_title.href) && !(paper_title.textContent.includes('[Read]'))){
+                            paper_title.textContent+=' [Read]';
+                        };
+                    }
+                    else{
+                        //console.log(document.URL);
+                        if(data.readList.includes(document.URL) && !(paper_links[i].textContent.includes('[Read]'))){
+                            paper_links[i].textContent+=' [Read]';
+                        }
+                    };
+                };
+            });
     };
 };
 if(document.URL.includes('https://arxiv.org/abs/')){
@@ -50,9 +74,9 @@ if(document.URL.includes('https://arxiv.org/abs/')){
         chrome.runtime.sendMessage({sciteshref: shref}, function(response) {
             chrome.runtime.onMessage.addListener(
                 function(request, sender, sendResponse) {
-                  console.log(sender.tab ?
-                              "from a content script:" + sender.tab.url :
-                              "from the extension");
+                  //console.log(sender.tab ?
+                  //            "from a content script:" + sender.tab.url :
+                  //            "from the extension");
                   if (request.sciteshref == shref){
                     sendResponse({farewell: "goodbye"});
                     srLink.text='Scites: '+request.nscites;
@@ -87,12 +111,12 @@ function setScitesSpan(span, a){
                     }
                 );
                 chrome.runtime.sendMessage({sciteshref: shref}, function(response) {
-                    console.log(response.farewell);
+                    //console.log(response.farewell);
                     chrome.runtime.onMessage.addListener(
                         function(request, sender, sendResponse) {
-                        console.log(sender.tab ?
-                                    "from a content script:" + sender.tab.url :
-                                    "from the extension");
+                        //console.log(sender.tab ?
+                        //            "from a content script:" + sender.tab.url :
+                        //            "from the extension");
                         if (request.sciteshref == shref){
                             sendResponse({farewell: "goodbye"});
                             a.text='Scites: '+request.nscites;
@@ -163,12 +187,12 @@ function setScitesA(a){
             );
             var scitebutton=this;
             chrome.runtime.sendMessage({sciteshref: shref}, function(response) {
-                console.log(response.farewell);
+                //console.log(response.farewell);
                 chrome.runtime.onMessage.addListener(
                     function(request, sender, sendResponse) {
-                    console.log(sender.tab ?
-                                "from a content script:" + sender.tab.url :
-                                "from the extension");
+                    //console.log(sender.tab ?
+                    //            "from a content script:" + sender.tab.url :
+                    //            "from the extension");
                     if (request.sciteshref == shref){
                         sendResponse({farewell: "goodbye"});
                         scitebutton.text='[Scites: '+request.nscites+']';

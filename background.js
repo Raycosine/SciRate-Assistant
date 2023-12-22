@@ -18,7 +18,8 @@ chrome.runtime.onInstalled.addListener(function() {
   });
   chrome.storage.sync.set({
     isLoveSen: 0,
-    currentSen: 1
+    currentSen: 1,
+    readList: []
   });
 });
 
@@ -41,9 +42,9 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
+    //console.log(sender.tab ?
+    //            "from a content script:" + sender.tab.url :
+    //            "from the extension");
     if (request.sciteshref!==undefined){
       sendResponse({farewell: "goodbye"});
         //console.log('get scirate href');
@@ -54,7 +55,7 @@ chrome.runtime.onMessage.addListener(
         httpReq.setRequestHeader('Access-Control-Allow-Origin', '*');
         var fields={};
         httpReq.onreadystatechange = function () {
-        console.log('test');
+        //console.log('test');
         if (httpReq.readyState === 4){// && httpReq.status === '200') {
             console.log('read scites ready!');
             //console.log(httpReq);
