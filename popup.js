@@ -13,10 +13,10 @@ removeFont.onclick = function(element) {
   if(links!=undefined) {
     links[0].disabled=1-links[0].disabled;
     if(links[0].disabled==1){
-      removeFont.textContent="Disable Sen";
+      removeFont.textContent="Disable default font";
     }
     else{
-      removeFont.textContent="Enable Sen";
+      removeFont.textContent="Use default font";
     }
     //console.log('disabled changed');
     chrome.storage.sync.set({
@@ -160,10 +160,10 @@ chrome.storage.sync.get('url', function(data) {
             links[0].disabled=1-data.currentSen;
             removeFont.text=links[0].disabled;
             if(links[0].disabled==1){
-              removeFont.textContent="Disable Sen";
+              removeFont.textContent="Disable default font";
             }
             else{
-              removeFont.textContent="Enable Sen";
+              removeFont.textContent="Use default font";
             }
           }
         }
@@ -184,10 +184,10 @@ chrome.storage.sync.get('url', function(data) {
                     links[0].disabled=0;
                 }
                 if(links[0].disabled==1){
-                  removeFont.textContent="Disable Sen";
+                  removeFont.textContent="Disable default font";
                 }
                 else{
-                  removeFont.textContent="Enable Sen";
+                  removeFont.textContent="Use default font";
                 }
               }
           });
