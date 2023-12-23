@@ -8,10 +8,10 @@ SciRate Assistant is a Chrome extension to offer SciRate users a personalized ex
 
 ## Features
 
-### A read list (Dec 22, 2023)
-This extension now maintains a read list locally. By clicking buttons in the popup window with the opened tab about a specific paper on scirate, one can mark the paper as 'read' or remove it from the read list.
+### A reading list (Dec 22, 2023)
+This extension now maintains a reading list locally. By clicking buttons in the popup window with the opened tab about a specific paper on scirate, one can mark the paper as 'read' or remove it from the reading list.
 
-On scirate, right next to the paper title in a search/personal scites/newest paper page, there will be a '[Read]' sign for those on the read list.
+On scirate, right next to the paper title in a search/personal scites/newest paper page, there will be a '[Read]' sign for those on the reading list.
  
 ### To have Sen or not to have
 Scirate's current (20201005) font-family is : ("Sen", "Helvetica Neue", Helvetica, Arial, sans-serif). The first one is [added](https://github.com/scirate/scirate/commit/a6e666a7ffa8519e81adcea2464b3563198382d3) early this year as requested (by someone I didn't find out).

@@ -19,7 +19,7 @@ chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.sync.set({
     isLoveSen: 0,
     currentSen: 1,
-    readList: []
+    readList: {}
   });
 });
 

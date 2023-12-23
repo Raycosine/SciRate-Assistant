@@ -3,12 +3,34 @@
 <head><title>SciRate Assistant Options</title></head>
 <body>
 <label>
+  <h3>Font preference</h3>
   <input type="checkbox" id="isLoveSen">
   I prefer Sen.
 </label>
 
 <div id="status"></div>
 <button id="save">Save</button>
+<br><br>
+<label> 
+  <h3>Export the reading list</h3>
+<button id="exportReadList">Export</button>
+</label>
+<br>
+<label>
+  <h3>Load the reading list</h3>
+  <input type="file" id="loadFile">
+  <button id="confirmLoad">Load</button>
+  <div>Note that when one paper is marked as 'reading' in one list and 'read' in the other, it will be marked as 'read'.</div>
+  <div id="loadStatus"></div>
+</label>
+<br>
+<label>
+  <h3 color="red">Delete the reading list</h3>
+  <input type="text" id="deleteText" style="background:aliceblue; color:red;" placeholder="type 'DELETE' to confirm">
+  <button id="deleteReadList" style="background:red; color:aliceblue;">Submit</button>
+  <div id="hint"></div>
+</label>
+
 <script src="options.js"></script>
 </body>
 </html>

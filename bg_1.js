@@ -1,3 +1,5 @@
+var readStatus=['','Reading', 'Read'];
+var readStatusClass=['','btn-primary', 'btn-google'];
 if(document.URL.includes('scirate')){
     links=document.head.getElementsByTagName('link');
     paper_links=document.body.getElementsByClassName('title');
@@ -30,17 +32,28 @@ if(document.URL.includes('scirate')){
                 //console.log('check readlist');
                 //console.log(data.readList);
                 for(i=0;i<paper_links.length;i++){
-                    if(paper_links[i].firstChild.href!=undefined){
-                        var paper_title= paper_links[i].firstChild;
+                    if(paper_links[i].lastChild.href!=undefined){
+                        var paper_title= paper_links[i].lastChild;
                         //console.log(paper_title);
-                        if(data.readList.includes(paper_title.href) && !(paper_title.textContent.includes('[Read]'))){
-                            paper_title.textContent+=' [Read]';
+                        if((paper_title.id=='') && (data.readList[paper_title.href]!=undefined) && !(paper_title.textContent.includes('[Read]'))){
+                            var rdsts=document.createElement('button');
+                            rdsts.className=readStatusClass[data.readList[paper_title.href]];
+                            rdsts.id='readStatus'
+                            rdsts.disabled=true;
+                            rdsts.textContent=readStatus[data.readList[paper_title.href]];
+                            paper_title.parentElement.appendChild(rdsts);
+                            paper_title.id=readStatus[data.readList[paper_title.href]];
                         };
                     }
                     else{
                         //console.log(document.URL);
-                        if(data.readList.includes(document.URL) && !(paper_links[i].textContent.includes('[Read]'))){
-                            paper_links[i].textContent+=' [Read]';
+                        if((paper_links[i].id=='') &&(data.readList[document.URL]!=undefined) && !(paper_links[i].textContent.includes('[Read]'))){
+                            var rdsts=document.createElement('button');
+                            rdsts.className=readStatusClass[data.readList[document.URL]];
+                            rdsts.disabled=true;
+                            rdsts.textContent=readStatus[data.readList[document.URL]];
+                            paper_links[i].parentElement.appendChild(rdsts);
+                            paper_links[i].id=readStatus[data.readList[document.URL]];
                         }
                     };
                 };
